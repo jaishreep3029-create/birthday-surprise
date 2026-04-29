@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday ❤️</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+    body {
+      background: linear-gradient(135deg, #ff758c, #ff9eb5);
+      overflow: hidden;
+      color: white;
+      height: 100vh;
+    }
+
+    .page {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 3rem;
+      animation: glow 2s infinite alternate;
+    }
+
+    p {
+      max-width: 700px;
+      line-height: 1.8;
+      font-size: 1.2rem;
+      padding: 20px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      margin: 20px;
+    }
+
+    img {
+      width: 320px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.5);
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      color: #ff4f8b;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      font-size: 35px;
+      animation: rise 10s linear infinite;
+    }
+
+    .balloon:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .balloon:nth-child(2) { left: 30%; animation-delay: 2s; }
+    .balloon:nth-child(3) { left: 50%; animation-delay: 4s; }
+    .balloon:nth-child(4) { left: 70%; animation-delay: 1s; }
+    .balloon:nth-child(5) { left: 90%; animation-delay: 3s; }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px white; }
+      to { text-shadow: 0 0 25px white; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page active" id="page1">
+    <h1>Happy Birthday My Love ❤️</h1>
+    <button onclick="nextPage(2)">Next Surprise ➜</button>
+  </div>
+
+  <div class="page" id="page2">
+    <h1>Our Beautiful Memory ❤️</h1>
+    <img src="your-photo.png" alt="Our Photo">
+    <button onclick="nextPage(3)">Next Surprise ➜</button>
+  </div>
+
+  <div class="page" id="page3">
+    <h1>For You ❤️</h1>
+    <p>
+      Happy Birthday to the most special person in my life. Every moment with you feels magical, every smile of yours makes my day brighter, and every memory we create together becomes my favorite memory. 
+      <br><br>
+      You are my best friend, my comfort place, and the reason behind so many of my smiles. Thank you for understanding me, supporting me, and loving me unconditionally.
+      <br><br>
+      I feel lucky every single day because I have you in my life. No matter what happens, my love for you will always stay strong. I hope your birthday brings you endless happiness, success, laughter, and everything beautiful you deserve.
+      <br><br>
+      Thank you for making my world brighter just by being in it. I love you today, tomorrow, and forever. ❤️
+    </p>
+  </div>
+
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+
+  <audio autoplay loop>
+    <source src="birthday-song.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    function nextPage(pageNumber) {
+      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.getElementById('page' + pageNumber).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
